@@ -27,7 +27,7 @@ const CardV = ({ prod, stt, webKey }) => {
       <button
         onClick={() => {
           window.open(
-            `${window.location.hostname}${webKey ? `?webKey=${webKey}` : ""}`,
+            `${window.location.origin}${webKey ? `?webKey=${webKey}` : ""}`,
             "_blank"
           );
         }}

@@ -24,7 +24,7 @@ function App() {
           queryObject.category && queryObject.category !== ""
             ? `/category/${queryObject.category}`
             : ""
-        }${queryObject.limit ? `?limit=${queryObject.limit}` : ""}`
+        }${queryObject.limit ? `?limit=${queryObject.limit}` : ""}${queryObject.layout === 'single' ? `?limit=1` : ''}`
       );
       const data = await response.json();
       setProds(data.products);
@@ -47,9 +47,9 @@ function App() {
         break;
       case "single":
         if (queryObject.cardDirection === "horizontal") {
-          res = <CardH prod={prods[0]} webKey={queryObject.webKey} />;
+          res = prods.length > 0 && <CardH prod={prods[0]} webKey={queryObject.webKey} />;
         } else {
-          res = <CardV prod={prods[0]} webKey={queryObject.webKey} />;
+          res = prods.length > 0 && <CardV prod={prods[0]} webKey={queryObject.webKey} />;
         }
         break;
       case "list":
