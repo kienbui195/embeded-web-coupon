@@ -29,7 +29,7 @@ const CardH = ({ prod, webKey, stt }) => {
         <button
           onClick={() => {
             window.open(
-              `${window.location.href}${webKey ? `?webKey=${webKey}` : ""}`,
+              `${window.location.hostname}${webKey ? `?webKey=${webKey}` : ""}`,
               "_blank"
             );
           }}
