@@ -3,10 +3,12 @@ import * as React from "react";
 const CardH = ({ prod, webKey, stt }) => {
   return (
     <div className="w-full flex md:flex-row flex-col p-4 gap-4 shadow-md rounded-md relative">
-      <img
-        src={prod.thumbnail}
-        className="w-full flex-1 h-auto object-cover border shadow-inner rounded-md"
-      />
+      {prod.thumbnail && (
+        <img
+          src={prod.thumbnail}
+          className="w-full flex-1 h-auto object-cover border shadow-inner rounded-md"
+        />
+      )}
       {stt && (
         <div className="rounded-full w-10 h-10 text-xl bg-red-500 text-white font-bold absolute top-0 left-0 flex justify-center items-center">
           {stt}
@@ -17,10 +19,10 @@ const CardH = ({ prod, webKey, stt }) => {
         <div className="font-bold">{prod.rating} *</div>
         <div className="font-bold">{prod.price} USD</div>
         <div className="italic">{prod.description}</div>
-        <div className="font-bold italic">Category: {prod.category}</div>
+        <div className="font-bold italic">Category: {prod.category ?? ""}</div>
         <div className="font-bold italic flex flex-wrap items-center gap-2">
           Tags:{" "}
-          {Array.from(prod.tags).map((_tag, _idx) => (
+          {Array.from(prod.tags || []).map((_tag, _idx) => (
             <div className="p-1 rounded-sm bg-slate-300" key={_idx}>
               {_tag}
             </div>
