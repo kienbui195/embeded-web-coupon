@@ -29,7 +29,7 @@ const CardH = ({ prod, webKey, stt }) => {
         <button
           onClick={() => {
             window.open(
-              `http://localhost:3001${webKey ? `?webKey=${webKey}` : ""}`,
+              `${window.location.href}${webKey ? `?webKey=${webKey}` : ""}`,
               "_blank"
             );
           }}
